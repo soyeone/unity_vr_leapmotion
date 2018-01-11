@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class bookman : MonoBehaviour {
 
+    //패널 띄우고 끄는 함수
+    // show panel / hide panel
+
     public GameObject Pannel;
     public GameObject book;
         

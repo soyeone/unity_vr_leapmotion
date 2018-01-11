@@ -5,6 +5,8 @@ using UnityEngine.XR;
 
 public class Pathvr : MonoBehaviour {
 
+    //마우스 이용한 시점변환
+
     public float keySpeed = 10.0f;
     public float mouseSpeed = 1.25f;
     public GameObject eye;

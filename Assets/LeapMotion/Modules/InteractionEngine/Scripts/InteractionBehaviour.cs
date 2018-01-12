@@ -20,6 +20,8 @@ namespace Leap.Unity.Interaction {
 
   public enum ContactForceMode { Object, UI };
 
+    //립모션 충돌을 감지해줌
+
   /// <summary>
   /// InteractionBehaviours are components that enable GameObjects to interact with
   /// interaction controllers (InteractionControllerBase) in a physically intuitive way.

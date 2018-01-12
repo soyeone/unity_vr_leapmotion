@@ -8768,6 +8768,16 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
       <summary>
         <para>Removes all cached content in the cache that has been cached by the current application.</para>
       </summary>
+      <param name="expiration">The number of seconds that AssetBundles may remain unused in the cache.</param>
+      <returns>
+        <para>Returns True when cache clearing succeeded.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Cache.ClearCache(System.Int32)">
+      <summary>
+        <para>Removes all cached content in the cache that has been cached by the current application.</para>
+      </summary>
+      <param name="expiration">The number of seconds that AssetBundles may remain unused in the cache.</param>
       <returns>
         <para>Returns True when cache clearing succeeded.</para>
       </returns>
@@ -8841,6 +8851,16 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
       <summary>
         <para>Removes all AssetBundle and Procedural Material content that has been cached by the current application.</para>
       </summary>
+      <param name="expiration">The number of seconds that AssetBundles may remain unused in the cache.</param>
+      <returns>
+        <para>True when cache clearing succeeded, false if cache was in use.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Caching.ClearCache(System.Int32)">
+      <summary>
+        <para>Removes all AssetBundle and Procedural Material content that has been cached by the current application.</para>
+      </summary>
+      <param name="expiration">The number of seconds that AssetBundles may remain unused in the cache.</param>
       <returns>
         <para>True when cache clearing succeeded, false if cache was in use.</para>
       </returns>
@@ -8955,7 +8975,7 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="P:UnityEngine.Camera.activeTexture">
       <summary>
-        <para>Gets or sets the temporary RenderTexture target for this Camera.</para>
+        <para>Gets the temporary RenderTexture target for this Camera.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Camera.actualRenderingPath">
@@ -30231,6 +30251,13 @@ Use false when you want to use the existing bounding box and reduce the CPU cost
       </summary>
       <param name="routine"></param>
     </member>
+    <member name="M:UnityEngine.MonoBehaviour.StartCoroutine(System.String,System.Object)">
+      <summary>
+        <para>Starts a coroutine named methodName.</para>
+      </summary>
+      <param name="methodName"></param>
+      <param name="value"></param>
+    </member>
     <member name="M:UnityEngine.MonoBehaviour.StartCoroutine(System.String)">
       <summary>
         <para>Starts a coroutine named methodName.</para>
@@ -30238,12 +30265,11 @@ Use false when you want to use the existing bounding box and reduce the CPU cost
       <param name="methodName"></param>
       <param name="value"></param>
     </member>
-    <member name="M:UnityEngine.MonoBehaviour.StartCoroutine(System.String,System.Object)">
+    <member name="M:UnityEngine.MonoBehaviour.StartCoroutine">
       <summary>
-        <para>Starts a coroutine named methodName.</para>
+        <para>Starts a Coroutine named coroutine.</para>
       </summary>
-      <param name="methodName"></param>
-      <param name="value"></param>
+      <param name="coroutine">Name of the created Coroutine.</param>
     </member>
     <member name="M:UnityEngine.MonoBehaviour.StopAllCoroutines">
       <summary>
@@ -30255,14 +30281,21 @@ Use false when you want to use the existing bounding box and reduce the CPU cost
         <para>Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.</para>
       </summary>
       <param name="methodName">Name of coroutine.</param>
-      <param name="routine">Name of the function in code.</param>
+      <param name="routine">Name of the function in code, including coroutines.</param>
     </member>
     <member name="M:UnityEngine.MonoBehaviour.StopCoroutine(System.Collections.IEnumerator)">
       <summary>
         <para>Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.</para>
       </summary>
       <param name="methodName">Name of coroutine.</param>
-      <param name="routine">Name of the function in code.</param>
+      <param name="routine">Name of the function in code, including coroutines.</param>
+    </member>
+    <member name="M:UnityEngine.MonoBehaviour.StopCoroutine(UnityEngine.Coroutine)">
+      <summary>
+        <para>Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.</para>
+      </summary>
+      <param name="methodName">Name of coroutine.</param>
+      <param name="routine">Name of the function in code, including coroutines.</param>
     </member>
     <member name="T:UnityEngine.Motion">
       <summary>
@@ -56266,7 +56299,7 @@ The actual number of audio tracks cannot be known in advance when playing URLs, 
     </member>
     <member name="P:UnityEngine.Video.VideoPlayer.targetCamera">
       <summary>
-        <para>Camera component to draw to when Video.VideoPlayer.renderMode is set to either Video.VideoTarget.CameraBackPlane or Video.VideoTarget.CameraFrontPlane.</para>
+        <para>Camera component to draw to when Video.VideoPlayer.renderMode is set to either Video.VideoTarget.CameraFarPlane or Video.VideoTarget.CameraNearPlane.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Video.VideoPlayer.targetCameraAlpha">

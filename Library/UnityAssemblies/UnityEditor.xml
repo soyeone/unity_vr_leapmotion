@@ -15020,6 +15020,11 @@ Note: Use HandleUtility.GetHandleSize where you might want to have constant scre
         <para>This icon is used for Spotlight searches. (iOS only).</para>
       </summary>
     </member>
+    <member name="F:UnityEditor.IconKind.Store">
+      <summary>
+        <para>This icon is used by the iOS App Store.</para>
+      </summary>
+    </member>
     <member name="T:UnityEditor.IHVImageFormatImporter">
       <summary>
         <para>Use IHVImageFormatImporter to modify Texture2D import settings for Textures in IHV (Independent Hardware Vendor) formats such as .DDS and .PVR from Editor scripts.</para>
@@ -17199,19 +17204,29 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
         <para>Enable baked ambient occlusion (AO).</para>
       </summary>
     </member>
-    <member name="P:UnityEditor.LightmapEditorSettings.giBakeBackend">
+    <member name="P:UnityEditor.LightmapEditorSettings.filterTypeAO">
       <summary>
-        <para>Determines which backend to use for baking lightmaps.</para>
+        <para>Configure a filter kernel for the ambient occlusion target.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.filterTypeDirect">
+      <summary>
+        <para>Configure a filter kernel for the direct light target.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.filterTypeIndirect">
+      <summary>
+        <para>Configure a filter kernel for the indirect light target.</para>
       </summary>
     </member>
     <member name="P:UnityEditor.LightmapEditorSettings.giPathTracerFilter">
       <summary>
-        <para>Determines the filtering kernel for the Progressive Path Tracer backend.</para>
+        <para>Determines the filtering kernel for the Progressive Lightmapper.</para>
       </summary>
     </member>
-    <member name="P:UnityEditor.LightmapEditorSettings.giPathTracerSampling">
+    <member name="P:UnityEditor.LightmapEditorSettings.lightmapper">
       <summary>
-        <para>Determines which sampling strategy to use for baking lightmaps with the path tracing backend.</para>
+        <para>Determines which backend to use for baking lightmaps.</para>
       </summary>
     </member>
     <member name="P:UnityEditor.LightmapEditorSettings.maxAtlasHeight">
@@ -17239,72 +17254,82 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
         <para>Determines how Unity will compress baked reflection cubemap.</para>
       </summary>
     </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.sampling">
+      <summary>
+        <para>Determines which sampling strategy to use for baking lightmaps with the Progressive Lightmapper.</para>
+      </summary>
+    </member>
     <member name="P:UnityEditor.LightmapEditorSettings.textureCompression">
       <summary>
         <para>Whether to use texture compression on the generated lightmaps.</para>
       </summary>
     </member>
-    <member name="T:UnityEditor.LightmapEditorSettings.GIBakeBackend">
+    <member name="T:UnityEditor.LightmapEditorSettings.FilterMode">
       <summary>
-        <para>Backends available for baking lightmaps.</para>
+        <para>The available filtering modes for the Progressive Lightmapper.</para>
       </summary>
     </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.GIBakeBackend.PathTracer">
+    <member name="F:UnityEditor.LightmapEditorSettings.FilterMode.Advanced">
       <summary>
-        <para>Backend for baking lightmaps with path tracing.</para>
+        <para>Enables the advanced filtering mode for the Progressive Lightmapper.</para>
       </summary>
     </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.GIBakeBackend.Radiosity">
-      <summary>
-        <para>Backend for baking lightmaps with the Enlighten radiosity middleware.</para>
-      </summary>
-    </member>
-    <member name="T:UnityEditor.LightmapEditorSettings.PathTracerFilter">
-      <summary>
-        <para>The available filter kernels for the Progressive Path Tracer GI backend.</para>
-      </summary>
-    </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerFilter.ATrous">
-      <summary>
-        <para>Filter baked results of the Progressive Path Tracer with an A-Trous kernel.</para>
-      </summary>
-    </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerFilter.Gaussian">
-      <summary>
-        <para>Filter baked results of the Progressive Path Tracer with an Gauss kernel.</para>
-      </summary>
-    </member>
-    <member name="T:UnityEditor.LightmapEditorSettings.PathTracerFilterMode">
-      <summary>
-        <para>The available filtering modes for the Progressive Path Tracer GI backend.</para>
-      </summary>
-    </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerFilterMode.Advanced">
-      <summary>
-        <para>Enables the advanced filtering mode for the Progressive Path Tracer GI backend.</para>
-      </summary>
-    </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerFilterMode.Auto">
+    <member name="F:UnityEditor.LightmapEditorSettings.FilterMode.Auto">
       <summary>
         <para>The filtering is configured automatically.</para>
       </summary>
     </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerFilterMode.None">
+    <member name="F:UnityEditor.LightmapEditorSettings.FilterMode.None">
       <summary>
         <para>Turn filtering off.</para>
       </summary>
     </member>
-    <member name="T:UnityEditor.LightmapEditorSettings.PathTracerSampling">
+    <member name="T:UnityEditor.LightmapEditorSettings.FilterType">
       <summary>
-        <para>Available sampling strategies for baking lightmaps with the path tracing backend.</para>
+        <para>The available filter kernels for the Progressive Lightmapper.</para>
       </summary>
     </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerSampling.Auto">
+    <member name="F:UnityEditor.LightmapEditorSettings.FilterType.ATrous">
+      <summary>
+        <para>Use an A-Trous filter for a GI texture.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapEditorSettings.FilterType.Gaussian">
+      <summary>
+        <para>Use a Gaussian filter for a GI texture.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapEditorSettings.FilterType.None">
+      <summary>
+        <para>Do not filter GI texture.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.LightmapEditorSettings.Lightmapper">
+      <summary>
+        <para>Backends available for baking lightmaps.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapEditorSettings.Lightmapper.PathTracer">
+      <summary>
+        <para>Backend for baking lightmaps with path tracing.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapEditorSettings.Lightmapper.Radiosity">
+      <summary>
+        <para>Backend for baking lightmaps with the Enlighten radiosity middleware.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.LightmapEditorSettings.Sampling">
+      <summary>
+        <para>Available sampling strategies for baking lightmaps with the Progressive Lightmapper.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapEditorSettings.Sampling.Auto">
       <summary>
         <para>Auto will automatically select the sampling settings.</para>
       </summary>
     </member>
-    <member name="F:UnityEditor.LightmapEditorSettings.PathTracerSampling.Fixed">
+    <member name="F:UnityEditor.LightmapEditorSettings.Sampling.Fixed">
       <summary>
         <para>Fixed sampling uses a fixed number of samples per texel. This can be used when the other strategies fail to use enough samples in some areas. It will typically be slow.</para>
       </summary>
@@ -17611,6 +17636,20 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
         <para>Called when the Editor is woken up.</para>
       </summary>
     </member>
+    <member name="M:UnityEditor.MaterialEditor.BeginAnimatedCheck(UnityEngine.Rect,UnityEditor.MaterialProperty)">
+      <summary>
+        <para>Create a Property wrapper, useful for making regular GUI controls work with MaterialProperty.</para>
+      </summary>
+      <param name="totalPosition">Rectangle on the screen to use for the control, including label if applicable.</param>
+      <param name="prop">The MaterialProperty to use for the control.</param>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.BeginAnimatedCheck(UnityEditor.MaterialProperty)">
+      <summary>
+        <para>Create a Property wrapper, useful for making regular GUI controls work with MaterialProperty.</para>
+      </summary>
+      <param name="totalPosition">Rectangle on the screen to use for the control, including label if applicable.</param>
+      <param name="prop">The MaterialProperty to use for the control.</param>
+    </member>
     <member name="M:UnityEditor.MaterialEditor.ColorProperty(UnityEngine.Rect,UnityEditor.MaterialProperty,System.String)">
       <summary>
         <para>Draw a property field for a color shader property.</para>
@@ -17683,6 +17722,11 @@ Returns true if the UI is indeed displayed i.e. the material supports the Double
         <para>Display UI for editing material's render queue setting within the specified rect.</para>
       </summary>
       <param name="r"></param>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.EndAnimatedCheck">
+      <summary>
+        <para>Ends a Property wrapper started with BeginAnimatedCheck.</para>
+      </summary>
     </member>
     <member name="M:UnityEditor.MaterialEditor.FixupEmissiveFlag(UnityEngine.Color,UnityEngine.MaterialGlobalIlluminationFlags)">
       <summary>
@@ -20741,12 +20785,28 @@ See Also: PhysicsVisualizationSettings.</para>
         <para>Returns the list of assigned icons for the specified platform.</para>
       </summary>
       <param name="platform"></param>
+      <param name="kind"></param>
+    </member>
+    <member name="M:UnityEditor.PlayerSettings.GetIconsForTargetGroup(UnityEditor.BuildTargetGroup,UnityEditor.IconKind)">
+      <summary>
+        <para>Returns the list of assigned icons for the specified platform.</para>
+      </summary>
+      <param name="platform"></param>
+      <param name="kind"></param>
     </member>
     <member name="M:UnityEditor.PlayerSettings.GetIconSizesForTargetGroup(UnityEditor.BuildTargetGroup)">
       <summary>
         <para>Returns a list of icon sizes for the specified platform.</para>
       </summary>
       <param name="platform"></param>
+      <param name="kind"></param>
+    </member>
+    <member name="M:UnityEditor.PlayerSettings.GetIconSizesForTargetGroup(UnityEditor.BuildTargetGroup,UnityEditor.IconKind)">
+      <summary>
+        <para>Returns a list of icon sizes for the specified platform.</para>
+      </summary>
+      <param name="platform"></param>
+      <param name="kind"></param>
     </member>
     <member name="M:UnityEditor.PlayerSettings.GetIncrementalIl2CppBuild(UnityEditor.BuildTargetGroup)">
       <summary>
@@ -21716,6 +21776,15 @@ See Also: PhysicsVisualizationSettings.</para>
       </summary>
       <param name="platform"></param>
       <param name="icons"></param>
+      <param name="kind"></param>
+    </member>
+    <member name="M:UnityEditor.PlayerSettings.SetIconsForTargetGroup(UnityEditor.BuildTargetGroup,UnityEngine.Texture2D[],UnityEditor.IconKind)">
+      <summary>
+        <para>Assign a list of icons for the specified platform.</para>
+      </summary>
+      <param name="platform"></param>
+      <param name="icons"></param>
+      <param name="kind"></param>
     </member>
     <member name="M:UnityEditor.PlayerSettings.SetIncrementalIl2CppBuild(UnityEditor.BuildTargetGroup,System.Boolean)">
       <summary>

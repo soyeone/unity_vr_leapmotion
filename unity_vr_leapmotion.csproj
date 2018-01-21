@@ -90,8 +90,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\bookman.cs" />
-    <Compile Include="Assets\destroyfont.cs" />
     <Compile Include="Assets\ForestGenerator\Scripts\treegenerator\Forest.cs" />
     <Compile Include="Assets\ForestGenerator\Scripts\treegenerator\ForestCreator.cs" />
     <Compile Include="Assets\ForestGenerator\Scripts\treegenerator\ForestManager.cs" />
@@ -338,10 +336,12 @@
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\Realistic Hail Set\Demo Scene\Scripts\DemoSceneController.cs" />
+    <Compile Include="Assets\script\bookman.cs" />
+    <Compile Include="Assets\script\destroyfont.cs" />
     <Compile Include="Assets\script\looktomove1.cs" />
     <Compile Include="Assets\script\Pathvr.cs" />
+    <Compile Include="Assets\script\soundcont.cs" />
     <Compile Include="Assets\script\spwanmanager.cs" />
-    <Compile Include="Assets\soundcont.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
